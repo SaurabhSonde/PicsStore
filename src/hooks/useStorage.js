@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { projectStorage } from "../firebase/config";
+import { projStorage } from "../firebase/config";
 
 const useStorage = (file) => {
   //progress of the upload
@@ -13,7 +13,7 @@ const useStorage = (file) => {
 
   useEffect(() => {
     //references
-    const storageRef = projectStorage.ref(file.name);
+    const storageRef = projStorage.ref(file.name);
 
     //uploading file to reference
     storageRef.put(file).on(
