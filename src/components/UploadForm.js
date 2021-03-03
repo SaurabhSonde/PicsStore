@@ -2,11 +2,16 @@ import React, { useState } from "react";
 import ProgressBar from "./ProgressBar";
 
 const UploadForm = () => {
+  //seting files
   const [file, setFile] = useState(null);
+
+  //errors
   const [error, setError] = useState(null);
 
+  //restricting user to upload only png and jpeg files
   const imageTypes = ["image/png", "image/jpeg"];
 
+  //handling the change
   const handleChange = (e) => {
     let selected = e.target.files[0];
     if (selected && imageTypes.includes(selected.type)) {
