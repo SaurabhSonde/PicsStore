@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import firebase from "firebase/app";
 import { UserContext } from "../Context/UserContext";
 import { Redirect } from "react-router-dom";
-import { toast } from "react-toastify";
+
 const Signup = () => {
   const context = useContext(UserContext);
 
@@ -20,9 +20,6 @@ const Signup = () => {
       })
       .catch((error) => {
         console.log(error);
-        toast(error.message, {
-          type: "error",
-        });
       });
   };
 
