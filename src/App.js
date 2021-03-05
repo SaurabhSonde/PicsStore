@@ -3,19 +3,30 @@ import ImageGrid from "./components/ImageGrid";
 import Model from "./components/Model";
 import Title from "./components/Title";
 import UploadForm from "./components/UploadForm";
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import Home from "./components/Home";
+import SignUp from "./components/SignUp";
+import SignIn from "./components/SignIn";
+import { UserContext } from "./Context/UserContext";
+//firebase
+import firebase from "firebase/app";
+import "firebase/auth";
 
 function App() {
-  //to select the image for work of the model
-  const [selectedImg, setSelectedImg] = useState(null);
+  const [user, setUser] = useState(null);
+
   return (
-    <div className="App">
-      <Title />
-      <UploadForm />
-      <ImageGrid setSelectedImg={setSelectedImg} />
-      {selectedImg && (
-        <Model selectedImg={selectedImg} setSelectedImg={setSelectedImg} />
-      )}
-    </div>
+    <Router>
+      <UserContext.Provider value={{ user, setUser }}>
+        <div className="App">
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/signin" component={SignIn} />
+            <Route exact path="/signup" component={SignUp} />
+          </Switch>
+        </div>
+      </UserContext.Provider>
+    </Router>
   );
 }
 

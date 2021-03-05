@@ -20,4 +20,4 @@ const projFirestore = firebase.firestore();
 //creating timestamp in firebase
 const timestamp = firebase.firestore.FieldValue.serverTimestamp;
 
-export { projStorage, projFirestore, timestamp };
+export { projStorage, projFirestore, timestamp, firebaseConfig };
